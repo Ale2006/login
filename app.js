@@ -1,4 +1,10 @@
-    function registrar() {
+    $('document').ready(function () { 
+    Observador();
+})
+
+
+
+function registrar() {
         var email = document.getElementById('email').value;
         var pass = document.getElementById('pass').value;
 
@@ -54,12 +60,16 @@
             } else {
                 // User is signed out.
                 console.log('No existe');
+                contenido.innerHTML = `
+    
+                `;
                 // ...
             }
         });
 
     }
-    Observador();
+
+
 
     function estado(user) {
         var user = user;
@@ -67,8 +77,13 @@
 
         if (user.emailVerified) {
             contenido.innerHTML = `
-
-    <button onclick="cerrarSesion()" id="salir">LogOut</button>
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Bienvenido! ${user.email}</h4>
+        <p></p>
+        <hr>
+        <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+    </div>
+    <button onclick="cerrarSesion()" id="salir" class="btn btn-primary">LogOut</button>
 
     `;
         }
@@ -100,4 +115,5 @@
             });
 
     }
+
 
